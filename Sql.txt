@@ -1,0 +1,43 @@
+Azure connection string
+Server=tcp:simplonatech.database.windows.net,1433;Initial Catalog=BlogAppDb;Persist Security Info=False;User ID=PrashastVats;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+CREATE TABLE AdminInfo (
+	Id int Primary Key identity(1,1),
+    EmailId VARCHAR(255),
+    Password VARCHAR(255)
+);
+
+CREATE TABLE EmpInfo (
+	Id int Primary Key identity(1,1),
+    EmailId VARCHAR(255) unique,
+    Name VARCHAR(255),
+    DateOfJoining DATETIME,
+    PassCode INT
+);
+
+CREATE TABLE BlogInfo (
+    BlogId INT PRIMARY KEY identity(1,1),
+    Title VARCHAR(255),
+    Subject VARCHAR(255),
+    DateOfCreation DATETIME,
+    BlogUrl VARCHAR(255),
+    EmpEmailId VARCHAR(255),
+);
+
+Insert into AdminInfo(EmailId,Password) Values ('maximus@gmail.com','perseus')
+
+INSERT INTO EmpInfo (EmailId, Name, DateOfJoining, PassCode)
+VALUES ('mahesh@gmail.com', 'Mahesh Dalle', '2023-09-23 10:00:00', 12345);
+
+INSERT INTO EmpInfo (EmailId, Name, DateOfJoining, PassCode)
+VALUES ('triggered@gmail.com', 'Triggered Insaan', '2023-09-25 09:45:00', 12345);
+
+INSERT INTO BlogInfo ( Title, Subject, DateOfCreation, BlogUrl, EmpEmailId)
+VALUES ('Introduction to SQL', 'Database Management', '2023-09-24 14:30:00', 'https://example.com/sql-intro', 'renu@gmail.com');
+
+INSERT INTO BlogInfo ( Title, Subject, DateOfCreation, BlogUrl, EmpEmailId)
+VALUES ( 'Advanced SQL Techniques', 'Database Optimization', '2023-09-26 16:15:00', 'https://example.com/advanced-sql', 'sambosivam@gmail.com');
+
+Select * from AdminInfo
+Select * from EmpInfo
+Select * from BlogInfo
